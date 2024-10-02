@@ -11,21 +11,21 @@ struct Aluno
 };
 void linha()
 {
-    printf("------------------------------------------------------------------");
+    printf("------------------------------------------------------------------\n");
 }
 
 void lerDadosAluno(struct Aluno aluno[], int quantidade)
 {
     for (int i = 0; i < quantidade; i++)
     {
-        printf("\nNome do aluno: ");
+        aluno[i].id = i + 1;
+        printf("\nNome do %d aluno: ", aluno[i].id);
         fflush(stdin);
         scanf(" %s", &aluno[i].nome);
         printf("Primeira nota do aluno %s: ", aluno[i].nome);
         scanf("%f", &aluno[i].notas[0]);
         printf("Segunda nota do aluno %s: ", aluno[i].nome);
         scanf("%f", &aluno[i].notas[1]);
-        aluno[i].id = i + 1;
         linha();
     }
 }
@@ -57,6 +57,7 @@ void definirSituacaoDoAluno(struct Aluno aluno[], int quantidade)
 }
 void mostrarResultado(struct Aluno aluno[], int quantidade)
 {
+    system("cls");
     for (int i = 0; i < quantidade; i++)
     {
         linha();
@@ -78,7 +79,6 @@ int definirQuantidadeAlunos()
 
 void app()
 {
-    system("cls");
     int quantidade = definirQuantidadeAlunos();
     struct Aluno aluno[quantidade];
     lerDadosAluno(aluno, quantidade);
