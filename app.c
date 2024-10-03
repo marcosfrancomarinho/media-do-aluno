@@ -90,5 +90,6 @@ void app()
 int main()
 {
     app();
+    system("pause");
     return 0;
 }
